@@ -1,0 +1,278 @@
+* {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #202124;
+}
+
+h1,
+h2,
+h3,
+h4,
+h6,
+span,
+p,
+input,
+button {
+  font-family: 'Press Start 2P', system-ui;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 14px;
+  background: #eff6ff;
+  gap: 14px;
+}
+
+header {
+  display: flex;
+  align-items: stretch;
+}
+
+header,
+.main {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  gap: 14px;
+}
+
+header input {
+  flex: 1;
+  border-radius: 14px;
+  outline: none;
+  width: 100%;
+}
+
+header button {
+  border-radius: 14px;
+  background: transparent;
+  transition-duration: 200ms;
+  cursor: pointer;
+}
+
+header button:hover {
+  opacity: 0.7;
+}
+
+header button,
+header input {
+  padding: 14px 18px;
+  border: none;
+  outline: none;
+  background: white;
+}
+
+.tab-selected {
+  background: rgb(220, 35, 35);
+  position: relative;
+}
+
+.tab-selected::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-link);
+  border-radius: 0.5px;
+  animation: widen 250ms ease-in-out forwards;
+}
+
+.todo-buttons {
+  display: flex;
+  gap: 1rem;
+  position: relative;
+  z-index: 5;
+  padding: 5px;
+}
+
+.todo-buttons button {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.todo-buttons button:hover {
+  transform: none;
+  opacity: 0.6;
+}
+
+.todo-buttons button:first-of-type {
+  /* color: #8aff80;
+  background: rgba(138, 255, 128, .1); */
+  color: var(--background-primary);
+  background: var(--color-link);
+}
+
+.todo-buttons button:last-of-type {
+  /* color: #9580ff;
+  background: rgba(149, 128, 255, .1); */
+  color: var(--color-link);
+  background: var(--color-link-transparent);
+}
+
+
+/* Disabled button styling */
+.button:disabled {
+  background-color: #cccccc; /* Gray background */
+  color: #666666;            /* Dark gray text */
+  cursor: not-allowed;       /* Show not-allowed cursor */
+  opacity: 0.6;              /* Slightly fade the button */
+}
+
+p {
+  font-size: 0.9em;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.card.todo-item {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 16px 0;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Text inside the card */
+.card.todo-item p {
+  font-size: 16px;
+  color: #333;
+  margin: 0;
+  word-wrap: break-word;
+}
+
+/* Button container */
+.card.todo-item div {
+  display: flex;
+  gap: 12px;
+}
+
+/* Button styling */
+.todo-buttons {
+  background-color: #7eaee1;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.todo-buttons h6 {
+  margin: 0;
+  font-size: 14px;
+}
+
+.done {
+  background: rgb(111, 222, 111);
+}
+
+.card {
+  width: 100%;               /* Fixed width for the card */
+  border-radius: 10px;        /* Rounded corners */
+  background-color: #fff;     /* White background */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  overflow: hidden;           /* Ensure that content doesn’t spill outside the rounded corners */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition on hover */
+  margin: 20px;               /* Space around the card */
+}
+
+
+.todo-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border: none;
+}
+
+.todo-item p {
+  font-weight: 500;
+}
+
+.todoItem {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px;
+  border-radius: 14px;
+  background: white;
+}
+
+.todoItem p {
+  flex: 1;
+}
+
+.actionsContainer {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.actionsContainer button {
+  transition-duration: 200ms;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.actionsContainer button:hover {
+  opacity: 0.7;
+}
+
+
+
+@media (min-width: 640px) {
+
+  header button,
+  header input {
+    font-size: 1.2em;
+  }
+
+  p {
+    font-size: 1em;
+  }
+}
+
+
+/* General styles for the navigation */
+.navbar {
+  display: flex;
+  justify-content: space-evenly;   /* Evenly distribute buttons across the screen */
+  align-items: center;             /* Vertically center buttons */
+  padding: 10px 0;                 /* Add some padding for spacing */
+}
+
+/* Style for each tab button */
+.tab-button {
+  display: flex;
+  gap: 5px;
+  color: #333;                    /* Text color */
+  font-size: 16px;                 /* Set a font size */
+  border: 2px solid #ccc;         /* Add a subtle border */
+  border-radius: 5px;             /* Rounded corners */
+  padding: 10px 20px;              /* Add some padding inside the buttons */
+  cursor: pointer;                /* Show pointer cursor on hover */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+}
+
+/* Hover effect */
+.tab-button:hover {
+  background: transparent;
+  transition-duration: 50ms;               /* Change text color */
+  transform: scale(1.05);          /* Slightly scale the button for hover effect */
+}
